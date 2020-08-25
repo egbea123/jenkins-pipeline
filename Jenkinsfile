@@ -24,7 +24,7 @@ pipeline {
      stage('docker-compose') {
         steps{
           echo "buiding images"
-          sh 'rundockerbuild.sh'
+          sh './rundockerbuild.sh'
            echo "Image build complete"
           }
        } 
@@ -38,8 +38,8 @@ pipeline {
           echo "Image push image1 complete"
           
           echo "Pushing image2 to GitHub registry"
-          sh 'docker tag  $IMAGE_NAME02:$IMAGE_TAG02 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME02:$IMAGE_TAG02'
-          sh 'docker push $DOCKER_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02'
+          sh 'sudo docker tag  $IMAGE_NAME02:$IMAGE_TAG02 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME02:$IMAGE_TAG02'
+          sh 'sudo docker push $DOCKER_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02'
           echo "Image push image2 complete"
       }
     }  

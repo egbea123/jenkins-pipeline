@@ -24,8 +24,8 @@ pipeline {
      stage('docker-compose') {
         steps{
           echo "buiding images"
-          sh "docker-compose build"
-          sh "docker-compose up -d"
+          sh 'sudo docker-compose build'
+          sh 'sudo docker-compose up -d'
           echo "Image build complete"
           }
        } 
@@ -33,21 +33,21 @@ pipeline {
       stage('deploy') {
         steps {
           echo "Pushing image1 to GitHub registry"
-          sh "docker login -u $DOCKERHUB_USER -p $DPass"
-          sh "docker tag  $IMAGE_NAME01:$IMAGE_TAG01 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME01:$IMAGE_TAG01"
-          sh "docker push $DOCKER_RRGISTRY/$IMAGE_NAME01:$IMAGE_TAG01"
+          sh 'sudo docker login -u $DOCKERHUB_USER -p $DPass'
+          sh 'sudo docker tag  $IMAGE_NAME01:$IMAGE_TAG01 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME01:$IMAGE_TAG01'
+          sh 'sudo docker push $DOCKER_RRGISTRY/$IMAGE_NAME01:$IMAGE_TAG01'
           echo "Image push image1 complete"
           
           echo "Pushing image2 to GitHub registry"
-          sh "docker tag  $IMAGE_NAME02:$IMAGE_TAG02 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME02:$IMAGE_TAG02"
-          sh "docker push $DOCKER_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02"
+          sh 'docker tag  $IMAGE_NAME02:$IMAGE_TAG02 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME02:$IMAGE_TAG02'
+          sh 'docker push $DOCKER_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02'
           echo "Image push image2 complete"
       }
     }  
   }
   post{
       always {
-         sh "docker-compose down || true"
+         sh "sduo docker-compose down || true'
       }
    }   
 }

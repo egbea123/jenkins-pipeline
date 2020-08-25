@@ -2,9 +2,9 @@ def IMAGE_NAME01="jenkins-pipeline"
 def IMAGE_TAG01="latest"
 def IMAGE_NAME02="jenkins/jenkins"
 def IMAGE_TAG2="lts"
-def Docker_TYPE="docker.io"
+def DockerTYPE="docker.io"
 def DOCKER_HUB_USER="egbea123"
-def DOCKER_Pass="Zuft@08caring"
+def DOCKERPass="Zuft@08caring"
 def DOCKER_RRGISTRY ="egbea123/jenkins-image"
 def Git_clone="github.com/egbea123/jenkins-pipeline.git"
 
@@ -18,7 +18,7 @@ pipeline {
   stages {
        stage('Cloning Git') {
       steps {
-        git 'https://def Git_clone'
+        git 'https://Git_clone'
       }
     }
      stage('docker-compose') {

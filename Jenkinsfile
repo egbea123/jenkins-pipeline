@@ -24,9 +24,10 @@ pipeline {
      stage('docker-compose') {
         steps{
           echo "buiding images"
-          sh 'sudo docker-compose build'
-          sh 'sudo docker-compose up -d'
-          echo "Image build complete"
+          sh './rundockerbuild.sh'
+        #  sh 'sudo docker-compose build'
+         # sh 'sudo docker-compose up -d'
+         # echo "Image build complete"
           }
        } 
      

@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "egbea123/jenkins-image"
-    registryCredential = ‘dockerhub’
+    registryCredential = "dockerhub"
   }
   agent any
   stages {

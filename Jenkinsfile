@@ -1,17 +1,19 @@
 pipeline {
+  environment {
+    registry = "egbea123/jenkins-image"
+    registryCredential = ‘dockerhub’
+  }
   agent any
   stages {
-  stage('Stage 1') {
+    stage('Cloning Git') {
       steps {
-        script {
-          echo 'Stage 1'
-        }
+        git 'https://github.com/egbea123/jenkins-pipeline.git'
       }
     }
-  stage('Stage 2') {
-      steps {
+    stage('Building image') {
+      steps{
         script {
-          echo 'Stage 2'
+          docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }

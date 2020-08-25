@@ -2,10 +2,10 @@ def IMAGE_NAME01="jenkins-pipeline"
 def IMAGE_TAG01="latest"
 def IMAGE_NAME02="jenkins/jenkins"
 def IMAGE_TAG2="lts"
-def DockerTYPE="docker.io"
-def DOCKER_HUB_USER="egbea123"
-def DOCKERPass="Zuft@08caring"
-def DOCKER_RRGISTRY ="egbea123/jenkins-image"
+def IOTYPE="docker.io"
+def DOCKERHUB_USER="egbea123"
+def DPass="Zuft@08caring"
+def DOCKER_REGISTRY ="egbea123/jenkins-image"
 def Git_clone='github.com/egbea123/jenkins-pipeline.git'
 
 pipeline {
@@ -33,14 +33,14 @@ pipeline {
       stage('deploy') {
         steps {
           echo "Pushing image1 to GitHub registry"
-          sh "docker login -u $DOCKER_HUB_USER -p $DOCKER_Pass"
-          sh "docker tag  $IMAGE_NAME01:$IMAGE_TAG01 $Docker_TYPE/$DOCKERR_RRGISTRY/$IMAGE_NAME01:$IMAGE_TAG01"
+          sh "docker login -u $DOCKERHUB_USER -p $DPass"
+          sh "docker tag  $IMAGE_NAME01:$IMAGE_TAG01 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME01:$IMAGE_TAG01"
           sh "docker push $DOCKER_RRGISTRY/$IMAGE_NAME01:$IMAGE_TAG01"
           echo "Image push image1 complete"
           
           echo "Pushing image2 to GitHub registry"
-          sh "docker tag  $IMAGE_NAME02:$IMAGE_TAG02 $Docker_TYPE/$DOCKERR_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02"
-          sh "docker push $DOCKERR_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02"
+          sh "docker tag  $IMAGE_NAME02:$IMAGE_TAG02 $IOTYPE/$DOCKER_REGISTRY/$IMAGE_NAME02:$IMAGE_TAG02"
+          sh "docker push $DOCKER_RRGISTRY/$IMAGE_NAME02:$IMAGE_TAG02"
           echo "Image push image2 complete"
       }
     }  

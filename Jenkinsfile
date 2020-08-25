@@ -25,14 +25,13 @@ pipeline {
         steps{
           echo "buiding images"
          
-         "sh '''#!/bin/bash
+         "sh '''#!/bin/bash'''
 
                echo "Hello from bash"
                echo "Who I'm $SHELL"
                sh 'chmod +x ./rundockerbuild.sh'
                sh './rundockerbuild.sh'
            echo "Image build complete"
-         '''
        }
      } 
      

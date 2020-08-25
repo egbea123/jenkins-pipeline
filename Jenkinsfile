@@ -24,6 +24,7 @@ pipeline {
      stage('docker-compose') {
         steps{
           echo "buiding images"
+          sh 'chmod +x ./rundockerbuild.sh'
           sh './rundockerbuild.sh'
            echo "Image build complete"
           }

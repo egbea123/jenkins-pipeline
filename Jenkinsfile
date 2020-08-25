@@ -18,7 +18,7 @@ pipeline {
   stages {
        stage('Cloning Git') {
       steps {
-        git 'https://Git_clone'
+        git 'https://github.com/egbea123/jenkins-pipeline.git'
       }
     }
      stage('docker-compose') {

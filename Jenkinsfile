@@ -6,7 +6,7 @@ def DockerTYPE="docker.io"
 def DOCKER_HUB_USER="egbea123"
 def DOCKERPass="Zuft@08caring"
 def DOCKER_RRGISTRY ="egbea123/jenkins-image"
-def Git_clone="github.com/egbea123/jenkins-pipeline.git"
+def Git_clone='github.com/egbea123/jenkins-pipeline.git'
 
 pipeline {
  environment {

@@ -12,7 +12,7 @@ pipeline {
 
    agent any
 
-   stages {
+  stages {
        stage('Cloning Git') {
       steps {
         git 'https://def Git_clone'
@@ -41,10 +41,10 @@ pipeline {
           echo "Image push image2 complete"
       }
     }  
-   post {
+  }
+  post{
       always {
          sh "docker-compose down || true"
       }
    }   
- }
 }

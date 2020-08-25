@@ -25,9 +25,7 @@ pipeline {
         steps{
           echo "buiding images"
           sh './rundockerbuild.sh'
-        #  sh 'sudo docker-compose build'
-         # sh 'sudo docker-compose up -d'
-         # echo "Image build complete"
+           echo "Image build complete"
           }
        } 
      

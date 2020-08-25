@@ -24,13 +24,9 @@ pipeline {
      stage('docker-compose') {
         steps{
           echo "buiding images"
-         
            sh '''#!/bin/bash'''
-
-               echo "Hello from bash"
-               echo "Who I'm $SHELL"
-               sh 'chmod +x ./rundockerbuild.sh'
-               sh './rundockerbuild.sh'
+             sh 'sudo docker docker-compose build'
+             sh 'sudo docker-compose up -d'
            echo "Image build complete"
        }
      } 

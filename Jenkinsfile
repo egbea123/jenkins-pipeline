@@ -9,7 +9,10 @@ def DOCKER_RRGISTRY ="egbea123/jenkins-image"
 def Git_clone="github.com/egbea123/jenkins-pipeline.git"
 
 pipeline {
-
+ environment {
+    registry = "egbea123/jenkins-image"
+    registryCredential = ‘dockerhub’
+  }
    agent any
 
   stages {

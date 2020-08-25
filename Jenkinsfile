@@ -47,7 +47,7 @@ pipeline {
   }
   post{
       always {
-         sh "sduo docker-compose down || true'
+         sh 'sduo docker-compose down || true'
       }
    }   
 }

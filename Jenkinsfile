@@ -23,7 +23,7 @@ pipeline {
     }
      stage('docker-compose') {
         steps{
-          echo "buiding images
+          echo "buiding images"
          
          "sh '''#!/bin/bash
 

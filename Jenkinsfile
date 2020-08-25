@@ -18,7 +18,7 @@ pipeline {
         git 'https://def Git_clone'
       }
     }
-     stage('Run-docker-compose') {
+     stage('docker-compose') {
         steps{
           echo "buiding images"
           sh "docker-compose build"
@@ -27,7 +27,7 @@ pipeline {
           }
        } 
      
-      stage('deply') {
+      stage('deploy') {
         steps {
           echo "Pushing image1 to GitHub registry"
           sh "docker login -u $DOCKER_HUB_USER -p $DOCKER_Pass"

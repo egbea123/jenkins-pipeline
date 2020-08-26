@@ -26,7 +26,7 @@ pipeline {
         steps{
           echo "buiding images"
            sh '''#!/bin/bash''' 
-           sh 'sudo docker-compose -f docker-compose.yml up -d --build'
+           sh 'sudo /usr/local/bin/docker-compose -f docker-compose.yml up -d --build'
            echo "Image build complete"
        }
      } 

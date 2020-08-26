@@ -10,6 +10,7 @@ def Git_clone='github.com/egbea123/jenkins-pipeline.git'
 
 pipeline {
  environment {
+    PATH = "$PATH:/usr/bin"
     registry = "egbea123/jenkins-image"
     registryCredential = "dockerhub"
   }
@@ -24,9 +25,8 @@ pipeline {
      stage('docker-compose') {
         steps{
           echo "buiding images"
-           sh '''#!/bin/bash'''
-             sh 'sudo docker docker-compose build'
-             sh 'sudo docker-compose up -d'
+           sh '''#!/bin/bash''' 
+           sh '/usr/bin/docker-compose -f docker-compose.yml up -d --build'
            echo "Image build complete"
        }
      } 
